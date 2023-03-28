@@ -15,3 +15,6 @@ Important: For Two-Way-Binding (covered in the next lecture) to work, you need t
 You then also need to add the import from @angular/forms  in the app.module.ts file:
 
 import { FormsModule } from '@angular/forms'; 
+
+Property binding: expression that returns a data type that the property [disabled] expects
+[disabled] = "expression"

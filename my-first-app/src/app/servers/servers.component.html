@@ -19,5 +19,9 @@ class="btn btn-primary">Add Server</button>
 [(ngModel)]="userName"
 >
 
-<button [disabled] = "!checkUserName()" (click)="resetUserName()">Click</button>
+<!-- <button [disabled] = "!checkUserName()" (click)="resetUserName()">Click</button> -->
+<!-- <button [disabled] = "!checkUserName()" (click)="userName === ''">Click</button> -->
+
+<button [disabled] = "userName === ''" (click)="userName = ''">Click</button>
+
 <p>{{userName}}</p>
