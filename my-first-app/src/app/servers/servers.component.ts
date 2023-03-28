@@ -10,6 +10,9 @@ import { Component } from '@angular/core';
 export class ServersComponent {
 	allowNewServer = false;
 	serverCreationStatus = 'No server was created!';
+	serverName = 'Testserver';
+	userName = '';
+	isEmpty = false;
 
 	constructor(){
 		setTimeout(() => {
@@ -19,7 +22,23 @@ export class ServersComponent {
 	}
 
 	onCreateServer(){
-		this.serverCreationStatus = 'Server was created!';
+		this.serverCreationStatus = 'Server was created! Name as' + this.serverName;
+	}
+
+	onUpdateServerName(event: any){
+		this.serverName = event.target.value;
+	}
+
+	checkUserName(){
+		if(this.userName){
+			this.isEmpty = true;
+		}
+
+		return this.isEmpty;
+	}
+
+	resetUserName(){
+		this.userName = '';
 	}
 
 	ngOnInit() {}
