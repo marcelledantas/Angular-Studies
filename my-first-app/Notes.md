@@ -18,3 +18,7 @@ import { FormsModule } from '@angular/forms';
 
 Property binding: expression that returns a data type that the property [disabled] expects
 [disabled] = "expression"
+
+Directives are instructions in the DOM.
+
+[ngStyle] - the square brackets means that we want to bind some property to this directive. ngStyles: allow us to dinamically update the style.

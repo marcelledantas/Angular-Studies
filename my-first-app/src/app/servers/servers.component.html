@@ -1,27 +1,32 @@
-
 <label>Sever Name</label>
 
 <!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)">
 <p>{{serverName}}</p> -->
 
-<input type="text" class="form-control" 
-[(ngModel)]="serverName">
+<input type="text" class="form-control" [(ngModel)]="serverName">
 <!-- <p>{{serverName}}</p> -->
 
-<button 
-[disabled]="!allowNewServer" 
-(click)="onCreateServer()"
-class="btn btn-primary">Add Server</button>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 
-<p>{{serverCreationStatus}}</p>
+<!-- <p>{{serverCreationStatus}}</p>
+ -->
+<p *ngIf="serverCreated" ; else noServer>Server was created, server name is {{serverName}}.</p>
 
-<input type="text"
-[(ngModel)]="userName"
->
+<!-- <ng-template #noServer>
+    <p #noServer>No server was created</p>
+</ng-template> -->
+
+
+<!-- 
+<input type="text" [(ngModel)]="userName"> -->
 
 <!-- <button [disabled] = "!checkUserName()" (click)="resetUserName()">Click</button> -->
 <!-- <button [disabled] = "!checkUserName()" (click)="userName === ''">Click</button> -->
 
-<button [disabled] = "userName === ''" (click)="userName = ''">Click</button>
+<!-- <button [disabled]="userName === ''" (click)="userName = ''">Click</button> -->
 
 <p>{{userName}}</p>
+
+<p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === 'online'}">{{'Server'}} with ID {{serverId}} is {{getServerStatus()}}</p>
+
+<app-server *ngFor="let server of servers"></app-server>
