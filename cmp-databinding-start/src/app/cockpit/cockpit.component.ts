@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
-	@Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>;
+	@Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>; //Output: passing data out of the component (m ake listinable from outside)
 	@Output() bluePrintCreated = new EventEmitter<{serverName: string, serverContent: string}>;
 	newServerName = '';
   newServerContent = '';
@@ -30,3 +30,5 @@ export class CockpitComponent implements OnInit {
   }
 
 }
+
+//Output allow parent component use this component to listen to events created with EventEmitter
