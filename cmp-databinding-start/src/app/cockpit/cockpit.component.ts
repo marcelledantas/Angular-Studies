@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
-	@Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>; //Output: passing data out of the component (m ake listinable from outside)
+	@Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>; //Output: passing data out of the component (make listinable from outside)
 	@Output() bluePrintCreated = new EventEmitter<{serverName: string, serverContent: string}>;
 	newServerName = '';
   newServerContent = '';
@@ -16,7 +16,9 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-	onAddServer() {
+	onAddServer(nameInput: { value: any; }) {
+		console.log(nameInput.value);
+
 		this.serverCreated.emit({
 			serverName: this.newServerName, 
 			serverContent: this.newServerContent});
